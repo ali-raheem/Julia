@@ -15,22 +15,22 @@
 #define COLOUR1 "\x44\x66\xed"
 #define COLOUR2 "\xf9\xfc\x10"
 
-#define NUM_THREADS 5
+#define NUM_THREADS 4
 
 typedef struct {
   int i;
   void *data;
 } targs_t;
 
-int isJulia(double x, double y) {
-  double complex z, c;
+int isJulia(float x, float y) {
+  float complex z, c;
   c = C;
   z = x + y * I;
   int i;
   for(i = 0; ITERATIONS > i; ++i) {
-    z = cpow(z, 2) + c;
+    z = cpowf(z, 2) + c;
   }
-  if(THRESH < cabs(z))
+  if(THRESH < cabsf(z))
     return 0;
   return 1;
 }
@@ -40,7 +40,7 @@ void *thread(void *args) {
   targs_t *targs = args;
   void *data = targs->data;
   int offset = 0;
-  double sx, sy;
+  float sx, sy;
   for(x = 0; WIDTH > x; ++x) {
     for(y = targs->i; HEIGHT > y; y += NUM_THREADS) {
       sx = SCALE * (WIDTH/2 - x) / (WIDTH/2);
