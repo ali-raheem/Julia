@@ -3,8 +3,8 @@
 #include <complex.h>
 #include <pthread.h>
 
-#define HEIGHT 900
-#define WIDTH 900
+#define HEIGHT 800
+#define WIDTH 800
 #define SCALE 1.5
 #define ITERATIONS 200 //20 //15
 #define THRESH 1000
