@@ -6,16 +6,16 @@
 #include <assert.h>
 #include <string.h>
 
-#define HEIGHT 800
-#define WIDTH 800
-#define SCALE 1.5
+#define HEIGHT 1000
+#define WIDTH 1000
+#define SCALE 1.0
 #define ITERATIONS 200 //20 //15
 #define THRESH 1000
 #define C -0.8 + 0.156 * I;
 #define COLOUR1 "\x44\x66\xed"
 #define COLOUR2 "\xf9\xfc\x10"
 
-#define NUM_THREADS 4
+#define NUM_THREADS 5
 
 typedef struct {
   int i;
