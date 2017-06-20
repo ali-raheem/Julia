@@ -47,17 +47,17 @@ void *thread(void *args) {
       sy = SCALE * (HEIGHT/2 - y) / (HEIGHT/2);
       if(isJulia(sx, sy))
         memcpy(data + offset,
-               COLOUR1, 3);
+               "\x01", 1);
       else
         memcpy(data + offset,
-               COLOUR2, 3);
-      offset = 3 * (x + y * WIDTH);
+               "\x00", 1);
+      offset = (x + y * WIDTH);
     }
   }
 }
 int main() {
   void *data;
-  data = (void *) malloc (WIDTH * HEIGHT * 3);
+  data = (void *) malloc (WIDTH * HEIGHT);
   assert(NULL != data);
 
   targs_t targs[NUM_THREADS];
@@ -74,6 +74,6 @@ int main() {
 
   FILE *fp;
   fp = fopen("julia.data", "wb");
-  fwrite(data, 3 * WIDTH * HEIGHT, 1, fp);
+  fwrite(data, WIDTH * HEIGHT, 1, fp);
   fclose(fp);
 }
