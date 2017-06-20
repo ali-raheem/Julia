@@ -12,8 +12,6 @@
 #define ITERATIONS 200 //20 //15
 #define THRESH 1000
 #define C -0.8 + 0.156 * I;
-#define COLOUR1 "\x44\x66\xed"
-#define COLOUR2 "\xf9\xfc\x10"
 
 #define NUM_THREADS 4
 
