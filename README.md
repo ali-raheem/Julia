@@ -2,6 +2,10 @@
 
 Quick and dirty Julia set generator.
 
+## Sample output
+
+![Default image](sample.png)
+
 ## Compilation
 
 ```
