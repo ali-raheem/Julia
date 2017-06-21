@@ -45,6 +45,8 @@ Colors are set in data2img.sh in the sed command.
 
 ## Usage
 
+Both are setup to produce images at default settings, in terms of tinkering this is usually with C in julia and SCALE in mandelbrot.
+
 ### Mandelbrot
 
 ```
