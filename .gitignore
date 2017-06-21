@@ -1,2 +1,4 @@
-julia.data
+*.data
 #*#
+*.rgb
+*.o

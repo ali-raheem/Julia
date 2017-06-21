@@ -69,6 +69,10 @@ $ eog julia.png
 $ ./bin/julia.py
 ```
 
+### Todo/Interesting things
+
+* Currently they produce binary images one colour for well behaved over iterations and one for diverges. Why not produce many colors? Minimal modification for up to 0xFF colours, should produce very pretty images.
+
 #### References and Reading
 
 * https://developer.nvidia.com/cuda-example
