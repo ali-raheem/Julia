@@ -31,16 +31,18 @@ Colors are set in data2img.sh in the sed command.
 
 ## Usage
 
+### Mandelbrot
+
 ```
-$ ./bin/julia
-$ ./bin/jd2png.py
+$ ./bin/mandelbrot
+$ ./bin/data2img.sh julia
 $ eog julia.png
 ```
 
-or
+### Julia
 
 ```
 $ ./bin/julia
-$ ./bin/data2img.sh julia
+$ ./bin/jd2png.py
 $ eog julia.png
 ```
