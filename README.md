@@ -13,7 +13,10 @@ For Mandelbrot we set z = 0 and (x, y) become the real and imaginary parts of C 
 ## Sample output
 
 ### Julia
-![Sample Julia output](samples/julia-sample.png)
+
+Default is F(z) = z -0.8 + 0.156i (suggested on wikipedia and CUDA by example).
+
+![Sample Julia output for -0.8 + 0.156i](samples/julia-sample.png)
 
 ### Mandelbrot
 ![Sample Mandelbrot output](samples/mandelbrot-sample.png)
