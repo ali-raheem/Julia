@@ -4,8 +4,8 @@ Quick and dirty Julia set (and mandelbrot) generator.
 
 ## Sample output
 
-![Sample Julia output](samples/julia-64x48.png)
-![Sample Mandelbrot output](samples/mandelbrot-64x48.png)
+![Sample Julia output](samples/julia-sample.png)
+![Sample Mandelbrot output](samples/mandelbrot-sample.png)
 
 ## Compilation
 
