@@ -1,6 +1,11 @@
 # Julia set generator
 
-Quick and dirty Julia set (and mandelbrot) generator.
+Quick and dirty Julia set (and mandelbrot) generator. A bit rough around the edges as I only made this to test out different approaches to parallelisation out, soon will have some time on a Xeon Phi cluster and want to make the most of it.
+
+* Single threaded
+* Multiple static pthreads
+* OpenMP static for parallelisation
+* WIP openCL.
 
 ## Theory
 
@@ -38,7 +43,7 @@ Colors are set in data2img.sh in the sed command.
 
 ## Dependencies
 
-* pthread
+* pthread (or openMP, there is also one without threading)
 * getopt
 * imagemagick or python with PIL
 
@@ -61,6 +66,12 @@ $ eog julia.png
 $ ./bin/julia
 $ ./bin/jd2png.py
 $ eog julia.png
+```
+
+### There is a work in progress openMP version too
+
+```
+$ gcc -O3 -o julia-mp src/julia-mp.c -lm -fopenmp
 ```
 
 ### Slow python version
