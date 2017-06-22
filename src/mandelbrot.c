@@ -40,14 +40,12 @@ void *thread(void *args) {
   int x, y;
   targs_t *targs = args;
   char *data = targs->data;
-  int offset = 0;
-  float sx, sy;
   for(x = 0; WIDTH > x; ++x) {
     for(y = targs->i; HEIGHT > y; y += NUM_THREADS) {
+      float sx, sy;
       sx = SCALEX * (WIDTH/2 - x) / (WIDTH/2);
       sy = SCALEY * (HEIGHT/2 - y) / (HEIGHT/2);
-      data[offset] = isJulia(sx, sy);
-      offset = (x + y * WIDTH);
+      data[x + y * WIDTH] = isJulia(sx, sy);
     }
   }
 }
