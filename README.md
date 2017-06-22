@@ -38,7 +38,13 @@ $ gcc -O3 -o julia julia.c -lm -lpthread
 $ gcc -O3 -o mandelbrot mandelbrot.c -lm -lpthread
 ```
 
-It's exceptionally multithreadable. By default it creates 12 threads. Most settings can only and should be set in the code, on my aging i5 laptop even having command line scaling (a single FP calulation per pixel) adds 10% overhead on some settings...
+For the openMP version julia-mp.c
+
+```
+$ gcc -O3 -o julia-mp src/julia-mp.c -lm -fopenmp
+```
+
+It's exceptionally multithreadable as you can calculate each pixel independently. By default it creates 12 threads. Most settings can only and should be set in the code, on my aging i5 laptop even having command line scaling (a single FP calulation per pixel) adds 10% overhead on some settings...
 
 The python version is of course rather slow since it does no threading.
 
@@ -67,19 +73,15 @@ $ eog julia.png
 
 ### Julia
 
+For the pthread version julia.c
+
 ```
 $ ./bin/julia
 $ ./bin/jd2png.py
 $ eog julia.png
 ```
 
-### There is a work in progress openMP version too
-
-```
-$ gcc -O3 -o julia-mp src/julia-mp.c -lm -fopenmp
-```
-
-### Slow python version
+For the python version
 
 ```
 $ ./bin/julia.py
