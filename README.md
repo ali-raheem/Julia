@@ -37,6 +37,10 @@ Default is F(z) = z -0.8 + 0.156i (suggested on wikipedia and CUDA by example).
 
 ![Sample Julia output for -0.8 + 0.156i](samples/julia-sample.png)
 
+With colour
+
+![With colour](samples/sample-coloured.png)
+
 ### Mandelbrot
 ![Sample Mandelbrot output](samples/mandelbrot-sample.png)
 
