@@ -8,11 +8,18 @@ Quick and dirty Julia set (and mandelbrot) generator. A bit rough around the edg
 * WIP openCL.
 * CUDA implementation is done awaiting hardware.
 
-So far the pthreads version has been most consistantly fastest, openMP was by far the simplest to do requiring only about 2 lines of changes to code. CUDA/openCL **should** be fastest on any modern GPU with openCL being portable to CPU/GPU.
+So far the pthreads version has been most consistantly fastest, openMP was by far the simplest to do requiring only about 2 lines of changes to code. Autopar versions provide only a modest improvement compared to single thread version. CUDA/openCL **should** be fastest on any modern GPU with openCL being portable to CPU/GPU.
 
 Using GCC-7 and Graphite the autopar options make about 30% speed improvement to the mp version (obvious no -fopenmp).
 
 Running time is linear with WIDTH, HEIGHT and ITERATIONS.
+
+In order of performance, with vague hand-wavey figures:
+
+* 6s for pthread
+* 6.5s for openMP
+* 18s for autopar
+* 26s for single thread
 
 ## Theory
 
