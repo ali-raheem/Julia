@@ -5,9 +5,10 @@
 #include <assert.h>
 #include <string.h>
 #include <omp.h>
+#include <openacc.h>
 
-#define HEIGHT 8000
-#define WIDTH 8000
+#define HEIGHT 1000
+#define WIDTH 1000
 #define SCALE 1.0
 #define ITERATIONS 200
 #define THRESH 1000
@@ -32,6 +33,7 @@ int main() {
 
   int x, y;
 #pragma omp parallel for private (y) collapse (2)
+#pragma acc kernels loop independent collapse (2)
   for(x = 0; WIDTH > x; ++x) {
     for(y = 0; HEIGHT > y; ++y) {
       float sx, sy;
