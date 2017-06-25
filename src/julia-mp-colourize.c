@@ -1,18 +1,21 @@
-#include <stdio.h>
+#include <omp.h>
 #include <math.h>
-#include <complex.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
-#include <omp.h>
+#include <complex.h>
 #include <openacc.h>
 
-#define HEIGHT 1000
-#define WIDTH 1000
-#define SCALE 1.0
+#define HEIGHT 1080*4
+#define WIDTH 1920*4
+#define SCALEX 2.0
+#define SCALEY 1.0
 #define ITERATIONS 255
 #define THRESH 1000
-#define C -0.8 + 0.156 * I;
+#define C -0.4 + 0.6 * I;
+#define PI 3.1415
+#define PHI 0.5*PI
 
 int isJulia(float x, float y) {
   float complex z;
@@ -33,18 +36,22 @@ int main() {
   assert(NULL != data);
 
   int x, y;
+#pragma acc paralel
+{
 #pragma omp parallel for private (y) collapse (2)
-#pragma acc loop collapse (2)
-  //#pragma omp target teams distribute 
+#pragma acc loop independent
   for(x = 0; WIDTH > x; ++x) {
+    #pragma acc loop independent
     for(y = 0; HEIGHT > y; ++y) {
-      float sx, sy;
-      sx = SCALE * (WIDTH/2 - x) / (WIDTH/2);
-      sy = SCALE * (HEIGHT/2 - y) / (HEIGHT/2);
+      float sx, sy, ssx, ssy;
+      ssx = SCALEX * (WIDTH/2 - x) / (WIDTH/2);
+      ssy = SCALEY * (HEIGHT/2 - y) / (HEIGHT/2);
+      sx = ssx * cosf(PHI) - ssy * sinf(PHI);
+      sy = ssx * sinf(PHI) + ssy * cosf(PHI);
       data[x + y*WIDTH] = isJulia(sx, sy);
     }
   }
-  
+}
   FILE *fp;
   fp = fopen("julia.data", "wb");
   fwrite(data, WIDTH * HEIGHT, 1, fp);
