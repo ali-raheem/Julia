@@ -46,7 +46,7 @@ With 256 colours
 ![With colour](samples/julia-random.png)
 
 ### Mandelbrot
-![Sample Mandelbrot output](samples/mandelbrot-coloured.png)
+![Sample Mandelbrot output](samples/mandelbrot.png)
 
 With 16 colour palette
 
