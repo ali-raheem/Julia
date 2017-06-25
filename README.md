@@ -44,6 +44,11 @@ With colour
 ### Mandelbrot
 ![Sample Mandelbrot output](samples/mandelbrot-sample.png)
 
+With colour
+
+![With colour](samples/mandelbrot-coloured.png)
+
+
 ## Compilation
 
 ```
