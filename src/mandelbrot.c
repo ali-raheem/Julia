@@ -11,7 +11,7 @@
 #define WIDTH 1920
 #define SCALEY 1.0
 #define SCALEX 2.0
-#define ITERATIONS 200 //20 //15
+#define ITERATIONS 255
 #define THRESH 1000
 
 #define NUM_THREADS 12
@@ -30,10 +30,10 @@ int isJulia(const float x, const float y) {
   int i;
   for(i = 0; ITERATIONS > i; ++i) {
     z = cpowf(z, 2) + c;
+    if(THRESH < cabsf(z))
+      return i;
   }
-  if(THRESH < cabsf(z))
-    return 0;
-  return 1;
+  return 255;
 }
 
 void *thread(void *args) {
