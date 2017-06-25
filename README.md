@@ -37,16 +37,24 @@ Default is F(z) = z -0.8 + 0.156i (suggested on wikipedia and CUDA by example).
 
 ![Sample Julia output for -0.8 + 0.156i](samples/julia-sample.png)
 
-With colour
+With 16 colours
 
 ![With colour](samples/julia-coloured.png)
 
-### Mandelbrot
-![Sample Mandelbrot output](samples/mandelbrot-sample.png)
+With 256 colours
 
-With colour
+![With colour](samples/julia-random.png)
+
+### Mandelbrot
+![Sample Mandelbrot output](samples/mandelbrot-coloured.png)
+
+With 16 colour palette
 
 ![With colour](samples/mandelbrot-coloured.png)
+
+With 256 random colours
+
+![With colour](samples/mandelbrot-random.png)
 
 
 ## Compilation
